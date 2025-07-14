@@ -32,7 +32,7 @@ const Card = () => {
           <DialogHeader>
             <DialogTitle>Create New Todo</DialogTitle>
             <DialogDescription>
-              Don&apos;t watch the clock; do what it does. Keep going.
+              Dont watch the clock; do what it does. Keep going.
             </DialogDescription>
           </DialogHeader>
           <div className="grid gap-4">

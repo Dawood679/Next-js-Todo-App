@@ -11,7 +11,7 @@ import Update from "@/components/ui/Update";
 import { redirect } from "next/navigation";
 
 
-const page = async ({ searchParams }: { searchParams: { search?: string } }) => {
+const page = async ({ searchParams }: { searchParams: { search?: string | undefined } }) => {
   
   const data1 = await getServerSession(authOptions);
   if (!data1) {

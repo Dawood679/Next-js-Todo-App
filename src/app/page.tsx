@@ -11,13 +11,13 @@ import Update from "@/components/ui/Update";
 import { redirect } from "next/navigation";
 
 
-const page = async  ({ searchParams }: { searchParams: { search?: string | undefined } }) => {
+const page = async  ({ searchParams }: { searchParams?: { search?: string | undefined } }) => {
   
   const data1 = await getServerSession(authOptions);
   if (!data1) {
   redirect("/api/auth/signin");
 }
-const search = await searchParams.search ?? "";
+const search = await searchParams?.search ?? "";
   const alltodos = await prisma.todo.findMany({
     where: {
       userId: data1.user.id,

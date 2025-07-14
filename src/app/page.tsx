@@ -10,8 +10,13 @@ import  Delete  from "@/components/ui/Delete"
 import Update from "@/components/ui/Update";
 import { redirect } from "next/navigation";
 
+interface PageProps {
+  searchParams?: {
+    search?: string;
+  };
+}
 
-export default async function Page ({ searchParams }: { searchParams?: { search?: string | undefined } })  {
+export default async function Page ({ searchParams }: PageProps)  {
   
   const data1 = await getServerSession(authOptions);
   if (!data1) {

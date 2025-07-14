@@ -13,8 +13,6 @@ import {
 import { Separator } from "@/components/ui/separator";
 import Link from "next/link";
 
-
-
 import Dark from "./Dark";
 import { useRouter } from "next/navigation";
 
@@ -22,7 +20,6 @@ const Navbar = () => {
   const session = useSession();
   const router = useRouter();
   const [search, setSearch] = useState("");
-  
 
   if (session.status == "loading") {
     return null;
@@ -41,13 +38,14 @@ const Navbar = () => {
           className="text-center "
           placeholder="Search Todo"
           onChange={(e) => {
-            if (search) {
-              router.push(`/?search=${encodeURIComponent(search.trim())}`);
-              
+            const value = e.target.value;
+            setSearch(value);
+
+            if (value.trim()) {
+              router.push(`/?search=${encodeURIComponent(value.trim())}`);
             } else {
               router.push("/");
             }
-            setSearch(e.target.value);
           }}
         ></Input>
       </div>

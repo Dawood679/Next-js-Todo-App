@@ -17,7 +17,7 @@ const page = async  ({ searchParams }: { searchParams?: { search?: string | unde
   if (!data1) {
   redirect("/api/auth/signin");
 }
-const search = await searchParams?.search ?? "";
+const search =  searchParams?.search ?? "";
   const alltodos = await prisma.todo.findMany({
     where: {
       userId: data1.user.id,
